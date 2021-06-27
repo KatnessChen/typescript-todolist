@@ -1,4 +1,4 @@
 export interface ITodo {
   title: string
-  subtitle: string
+  content: string
 }

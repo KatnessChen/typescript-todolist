@@ -35,7 +35,7 @@ export default class Home extends Vue {
   private isOpenCreator = false
   private todos = []
 
-  add (info: ITodo) {
+  add (info: ITodo): void {
     console.log(info)
   }
 }
@@ -43,7 +43,6 @@ export default class Home extends Vue {
 
 <style lang="scss" scoped>
 .home {
-  height: 100%;
   .create-btn {
     position: absolute;
     right: 8px;

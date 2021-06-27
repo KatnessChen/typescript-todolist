@@ -1,7 +1,6 @@
 <template>
   <v-dialog
     v-model="isOpen"
-    hide-overlay
   >
     <div class="pt-4 px-4">
       <v-text-field
@@ -40,15 +39,21 @@ export default class ToDoCreator extends Vue {
 
   titleInput = ''
   contentInput = ''
-  required = (value: string) => !!value || 'Required.'
-  min = (value: string) => (value && value.length >= 3) || 'Min 3 characters'
+  private required = (value: string) => !!value || 'Required.'
+  private min = (value: string) => (value && value.length >= 3) || 'Min 3 characters'
 
   @Emit('add')
   addToDo (): ITodo {
     return {
       title: this.titleInput,
-      subtitle: this.contentInput
+      content: this.contentInput
     }
   }
 }
 </script>
+
+<style lang="scss">
+.v-dialog {
+  background-color: #fff;
+}
+</style>

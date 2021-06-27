@@ -29,10 +29,10 @@ import ToDoItem from '../components/ToDoItem.vue'
 })
 export default class Home extends Vue {
   private todos: Array<ITodo> = [
-    { title: 'a', subtitle: 'B' },
-    { title: 'a', subtitle: 'B' },
-    { title: 'a', subtitle: 'B' },
-    { title: 'a', subtitle: 'B' }
+    { title: 'a', content: 'B' },
+    { title: 'a', content: 'B' },
+    { title: 'a', content: 'B' },
+    { title: 'a', content: 'B' }
   ]
 
   private settings = []
