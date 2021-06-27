@@ -28,12 +28,7 @@ import ToDoItem from '../components/ToDoItem.vue'
   }
 })
 export default class Home extends Vue {
-  private todos: Array<ITodo> = [
-    { title: 'a', content: 'B' },
-    { title: 'a', content: 'B' },
-    { title: 'a', content: 'B' },
-    { title: 'a', content: 'B' }
-  ]
+  @Prop({ required: true }) readonly todos!: Array<ITodo>
 
   private settings = []
 }

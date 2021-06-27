@@ -4,7 +4,7 @@
       :open.sync="isOpenCreator"
       @add="add"
     />
-    <to-do-list />
+    <to-do-list :todos="activeTodos" />
     <v-btn
       class="create-btn mx-2"
       fab
@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
 import ToDoCreator from '../components/ToDoCreator.vue'
 import ToDoList from '../components/ToDoList.vue'
 import { ITodo } from '../types/index'
@@ -33,10 +34,15 @@ import { ITodo } from '../types/index'
 })
 export default class Home extends Vue {
   private isOpenCreator = false
-  private todos = []
+  @namespace('todos').State todos!: Array<ITodo>;
 
-  add (info: ITodo): void {
-    console.log(info)
+  add (todo: ITodo): void {
+    this.$store.commit('todos/addTodo', todo)
+    this.isOpenCreator = false
+  }
+
+  get activeTodos (): Array<ITodo> {
+    return this.todos.filter(item => !item.isArchived)
   }
 }
 </script>

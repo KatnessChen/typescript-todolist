@@ -6,9 +6,9 @@
       dark
     >
       <div class="d-flex align-center">
-        <h2>
-          To Do List
-        </h2>
+        <h3>
+          {{ userName }}'s Todo List
+        </h3>
       </div>
 
       <v-spacer />
@@ -39,12 +39,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-export default Vue.extend({
-  name: 'App',
-
-  data: () => ({
-    //
-  })
-})
+@Component({})
+export default class App extends Vue {
+  private userName = 'Kat'
+}
 </script>

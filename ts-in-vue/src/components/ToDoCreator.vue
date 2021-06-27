@@ -45,8 +45,10 @@ export default class ToDoCreator extends Vue {
   @Emit('add')
   addToDo (): ITodo {
     return {
+      id: new Date().getTime(),
       title: this.titleInput,
-      content: this.contentInput
+      content: this.contentInput,
+      isArchived: false
     }
   }
 }
