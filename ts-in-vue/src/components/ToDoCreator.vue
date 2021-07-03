@@ -10,12 +10,6 @@
         :rules="[required, min]"
         class="mb-4"
       />
-      <v-text-field
-        v-model="contentInput"
-        label="Content"
-        hide-details="auto"
-        :rules="[required]"
-      />
       <v-btn
         icon
         color="pink"
@@ -39,15 +33,14 @@ export default class ToDoCreator extends Vue {
 
   titleInput = ''
   contentInput = ''
-  private required = (value: string) => !!value || 'Required.'
-  private min = (value: string) => (value && value.length >= 3) || 'Min 3 characters'
+  required = (value: string): boolean | string => !!value || 'Required.'
+  min = (value: string): boolean | string => (value && value.length >= 3) || 'Min 3 characters'
 
   @Emit('add')
   addToDo (): ITodo {
     return {
       id: new Date().getTime(),
       title: this.titleInput,
-      content: this.contentInput,
       isArchived: false
     }
   }

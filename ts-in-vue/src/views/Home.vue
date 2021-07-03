@@ -33,8 +33,8 @@ import { ITodo } from '../types/index'
   }
 })
 export default class Home extends Vue {
-  private isOpenCreator = false
-  @namespace('todos').State todos!: Array<ITodo>;
+  isOpenCreator = false
+  @namespace('todos').State todos!: Array<ITodo>
 
   add (todo: ITodo): void {
     this.$store.commit('todos/addTodo', todo)

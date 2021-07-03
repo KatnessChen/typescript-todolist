@@ -19,8 +19,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { ITodo } from '../types/index'
-import ToDoItem from '../components/ToDoItem.vue'
+import { ITodo } from '@/types/index'
+import ToDoItem from './ToDoItem.vue'
 
 @Component({
   components: {
@@ -30,6 +30,6 @@ import ToDoItem from '../components/ToDoItem.vue'
 export default class Home extends Vue {
   @Prop({ required: true }) readonly todos!: Array<ITodo>
 
-  private settings = []
+  settings = []
 }
 </script>
