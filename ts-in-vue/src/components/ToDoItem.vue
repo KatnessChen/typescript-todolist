@@ -1,8 +1,11 @@
 <template>
-  <v-list-item @input="onToggleCheck">
+  <v-list-item>
     <template v-slot:default="{ active }">
-      <v-list-item-action>
-        <v-checkbox :input-value="active" />
+      <v-list-item-action v-if="!todo.isArchived">
+        <v-checkbox
+          :input-value="active"
+          @change="onToggleCheck"
+        />
       </v-list-item-action>
 
       <v-list-item-content>
@@ -26,6 +29,7 @@ export default class ToDoItem extends Vue {
   @todoModule.Mutation('archiveTodo') archiveTodo!: (todoId: number) => void
 
   async onToggleCheck (done: boolean): Promise<void> {
+    console.log(done)
     if (done) {
       const isConfirm = await confirm('確定完成？')
       if (isConfirm) this.$store.commit('todos/archiveTodo', this.todo.id)

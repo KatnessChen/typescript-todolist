@@ -8,7 +8,6 @@ export default ({
     state.todos.unshift(newTodo)
   },
   archiveTodo (state: IState, todoId: number): void {
-    console.log('archiveTodo', todoId)
     const todo = state.todos.find((item: ITodo) => item.id === todoId)
     if (todo) todo.isArchived = true
   }
