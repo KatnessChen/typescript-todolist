@@ -24,15 +24,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, PropSync, Emit } from 'vue-property-decorator'
+import { Component, PropSync, Emit, Watch } from 'vue-property-decorator'
 import { ITodo } from '../types/index'
 
 @Component({})
 export default class ToDoCreator extends Vue {
   @PropSync('open', { type: Boolean }) isOpen!: boolean
+  @Watch('open')
+  onOpenChanged (open: boolean): void {
+    if (!open) this.titleInput = ''
+  }
 
   titleInput = ''
-  contentInput = ''
   required = (value: string): boolean | string => !!value || 'Required.'
   min = (value: string): boolean | string => (value && value.length >= 3) || 'Min 3 characters'
 
