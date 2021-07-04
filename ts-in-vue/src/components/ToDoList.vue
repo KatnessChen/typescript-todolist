@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import { ITodo } from '@/types/index'
-import ToDoItem from './ToDoItem.vue'
+import ToDoItem from '@/components/ToDoItem.vue'
 
 @Component({
   components: {
